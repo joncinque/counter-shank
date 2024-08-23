@@ -2,6 +2,7 @@
 
 set -e
 base="$(dirname "${BASH_SOURCE[0]}")"
+source "$base/read-cargo-variable.sh"
 cd "$base/.."
 
 if [[ -z $1 ]]; then
@@ -32,7 +33,6 @@ if [[ -n $DRY_RUN ]]; then
 fi
 
 # Get the new version.
-source "$base/read-cargo-variable.sh"
 new_version=$(readCargoVariable version "Cargo.toml")
 package_name=$(readCargoVariable name "Cargo.toml")
 tag_name="$(echo $package_name | sed 's/solana-jonc-program-counter-//')"
