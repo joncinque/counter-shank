@@ -32,21 +32,23 @@ if [[ -n $DRY_RUN ]]; then
 fi
 
 # Get the new version.
-base="$(dirname "${BASH_SOURCE[0]}")"
 source "$base/read-cargo-variable.sh"
 new_version=$(readCargoVariable version "Cargo.toml")
+package_name=$(readCargoVariable name "Cargo.toml")
+tag_name="$(echo $package_name | sed 's/solana-jonc-program-counter-//')"
+new_git_tag="${tag_name}@v${new_version}"
 
 # Expose the new version to CI if needed.
 if [[ -n $CI ]]; then
-  echo "new_version=${new_version}" >> $GITHUB_OUTPUT
+  echo "new_git_tag=${new_git_tag}" >> $GITHUB_OUTPUT
 fi
 
 # Soft reset the last commit so we can create our own commit and tag.
 git reset --soft HEAD~1
 
 # Commit the new version.
-git commit -am "Publish Rust client v${new_version}"
+git commit -am "Publish ${tag_name} v${new_version}"
 
 # Tag the new version.
-git tag -a rust@v${new_version} -m "Rust client v${new_version}"
+git tag -a ${new_git_tag} -m "${tag_name} v${new_version}"
 

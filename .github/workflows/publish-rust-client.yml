@@ -3,6 +3,10 @@ name: Publish Rust Client
 on:
   workflow_dispatch:
     inputs:
+      package_path:
+        description: Path to directory with package to release
+        required: true
+        type: string
       level:
         description: Level
         required: true
@@ -18,7 +22,7 @@ on:
           - release
           - version
       version:
-        description: Version
+        description: Version (used with level "version")
         required: false
         type: string
       dry_run:
@@ -112,7 +116,7 @@ jobs:
             OPTIONS=""
           fi
 
-          pnpm clients:rust:publish $LEVEL $OPTIONS
+          pnpm clients:rust:publish "${{ inputs.package_path }}" $LEVEL $OPTIONS
 
       - name: Push Commit and Tag
         if: github.event.inputs.dry_run != 'true'
@@ -122,4 +126,4 @@ jobs:
         if: github.event.inputs.create_release == 'true' && github.event.inputs.dry_run != 'true'
         uses: ncipollo/release-action@v1
         with:
-          tag: rust@v${{ steps.publish.outputs.new_version }}
+          tag: ${{ steps.publish.outputs.new_git_tag }}
