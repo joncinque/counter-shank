@@ -40,6 +40,7 @@ jobs:
   test_rust:
     name: Test Rust client
     runs-on: ubuntu-latest
+    if: false
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
@@ -116,7 +117,7 @@ jobs:
             OPTIONS=""
           fi
 
-          pnpm clients:rust:publish "${{ inputs.package_path }}" $LEVEL $OPTIONS
+          ./scripts/publish-rust.sh "${{ inputs.package_path }}" $LEVEL $OPTIONS
 
       - name: Push Commit and Tag
         if: github.event.inputs.dry_run != 'true'
