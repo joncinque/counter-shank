@@ -1,10 +1,10 @@
 [package]
-name = "solana-program-counter"
-version = "0.0.0"
+name = "solana-jonc-program-counter"
+version = "0.1.0"
 edition = "2021"
 readme = "./README.md"
 license-file = "../LICENSE"
-publish = false
+description = "A Solana Counter program (for testing)"
 
 [package.metadata.solana]
 program-id = "CounterProgram111111111111111111111111111111"
