@@ -44,7 +44,7 @@ impl Increment {
         data.append(&mut args);
 
         solana_program::instruction::Instruction {
-            program_id: crate::COUNTER_ID,
+            program_id: crate::SOLANA_JONC_PROGRAM_COUNTER_ID,
             accounts,
             data,
         }
@@ -229,7 +229,7 @@ impl<'a, 'b> IncrementCpi<'a, 'b> {
         data.append(&mut args);
 
         let instruction = solana_program::instruction::Instruction {
-            program_id: crate::COUNTER_ID,
+            program_id: crate::SOLANA_JONC_PROGRAM_COUNTER_ID,
             accounts,
             data,
         };

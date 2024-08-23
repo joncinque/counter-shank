@@ -7,5 +7,6 @@
 
 use solana_program::{pubkey, pubkey::Pubkey};
 
-/// `counter` program ID.
-pub const COUNTER_ID: Pubkey = pubkey!("CounterProgram111111111111111111111111111111");
+/// `solana_jonc_program_counter` program ID.
+pub const SOLANA_JONC_PROGRAM_COUNTER_ID: Pubkey =
+    pubkey!("CounterProgram111111111111111111111111111111");

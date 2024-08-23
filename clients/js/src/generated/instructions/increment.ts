@@ -34,7 +34,7 @@ import {
   type WritableAccount,
 } from '@solana/web3.js';
 import { findCounterPda } from '../pdas';
-import { COUNTER_PROGRAM_ADDRESS } from '../programs';
+import { SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS } from '../programs';
 import {
   expectAddress,
   getAccountMetaFactory,
@@ -42,7 +42,7 @@ import {
 } from '../shared';
 
 export type IncrementInstruction<
-  TProgram extends string = typeof COUNTER_PROGRAM_ADDRESS,
+  TProgram extends string = typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
   TAccountCounter extends string | IAccountMeta<string> = string,
   TAccountAuthority extends string | IAccountMeta<string> = string,
   TRemainingAccounts extends readonly IAccountMeta<string>[] = [],
@@ -115,13 +115,13 @@ export async function getIncrementInstructionAsync<
   input: IncrementAsyncInput<TAccountCounter, TAccountAuthority>
 ): Promise<
   IncrementInstruction<
-    typeof COUNTER_PROGRAM_ADDRESS,
+    typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
     TAccountCounter,
     TAccountAuthority
   >
 > {
   // Program address.
-  const programAddress = COUNTER_PROGRAM_ADDRESS;
+  const programAddress = SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS;
 
   // Original accounts.
   const originalAccounts = {
@@ -154,7 +154,7 @@ export async function getIncrementInstructionAsync<
       args as IncrementInstructionDataArgs
     ),
   } as IncrementInstruction<
-    typeof COUNTER_PROGRAM_ADDRESS,
+    typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
     TAccountCounter,
     TAccountAuthority
   >;
@@ -179,12 +179,12 @@ export function getIncrementInstruction<
 >(
   input: IncrementInput<TAccountCounter, TAccountAuthority>
 ): IncrementInstruction<
-  typeof COUNTER_PROGRAM_ADDRESS,
+  typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
   TAccountCounter,
   TAccountAuthority
 > {
   // Program address.
-  const programAddress = COUNTER_PROGRAM_ADDRESS;
+  const programAddress = SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS;
 
   // Original accounts.
   const originalAccounts = {
@@ -210,7 +210,7 @@ export function getIncrementInstruction<
       args as IncrementInstructionDataArgs
     ),
   } as IncrementInstruction<
-    typeof COUNTER_PROGRAM_ADDRESS,
+    typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
     TAccountCounter,
     TAccountAuthority
   >;
@@ -219,7 +219,7 @@ export function getIncrementInstruction<
 }
 
 export type ParsedIncrementInstruction<
-  TProgram extends string = typeof COUNTER_PROGRAM_ADDRESS,
+  TProgram extends string = typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
   TAccountMetas extends readonly IAccountMeta[] = readonly IAccountMeta[],
 > = {
   programAddress: Address<TProgram>;

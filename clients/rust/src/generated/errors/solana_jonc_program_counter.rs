@@ -9,7 +9,7 @@ use num_derive::FromPrimitive;
 use thiserror::Error;
 
 #[derive(Clone, Debug, Eq, Error, FromPrimitive, PartialEq)]
-pub enum CounterError {
+pub enum SolanaJoncProgramCounterError {
     /// 0 - Error deserializing an account
     #[error("Error deserializing an account")]
     DeserializationError = 0x0,
@@ -45,7 +45,7 @@ pub enum CounterError {
     NumericalOverflow = 0xA,
 }
 
-impl solana_program::program_error::PrintProgramError for CounterError {
+impl solana_program::program_error::PrintProgramError for SolanaJoncProgramCounterError {
     fn print<E>(&self) {
         solana_program::msg!(&self.to_string());
     }

@@ -1,6 +1,6 @@
 {
-  "version": "0.0.0",
-  "name": "solana_program_counter",
+  "version": "0.1.0",
+  "name": "solana_jonc_program_counter",
   "instructions": [
     {
       "name": "Create",

@@ -5,6 +5,6 @@
 //! <https://github.com/kinobi-so/kinobi>
 //!
 
-pub(crate) mod counter;
+pub(crate) mod solana_jonc_program_counter;
 
-pub use self::counter::CounterError;
+pub use self::solana_jonc_program_counter::SolanaJoncProgramCounterError;

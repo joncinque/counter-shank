@@ -39,14 +39,14 @@ impl Counter {
     ) -> Result<solana_program::pubkey::Pubkey, solana_program::pubkey::PubkeyError> {
         solana_program::pubkey::Pubkey::create_program_address(
             &["counter".as_bytes(), authority.as_ref(), &[bump]],
-            &crate::COUNTER_ID,
+            &crate::SOLANA_JONC_PROGRAM_COUNTER_ID,
         )
     }
 
     pub fn find_pda(authority: &Pubkey) -> (solana_program::pubkey::Pubkey, u8) {
         solana_program::pubkey::Pubkey::find_program_address(
             &["counter".as_bytes(), authority.as_ref()],
-            &crate::COUNTER_ID,
+            &crate::SOLANA_JONC_PROGRAM_COUNTER_ID,
         )
     }
 
@@ -81,7 +81,7 @@ impl anchor_lang::AccountSerialize for Counter {}
 #[cfg(feature = "anchor")]
 impl anchor_lang::Owner for Counter {
     fn owner() -> Pubkey {
-        crate::COUNTER_ID
+        crate::SOLANA_JONC_PROGRAM_COUNTER_ID
     }
 }
 

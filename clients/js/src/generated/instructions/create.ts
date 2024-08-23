@@ -31,7 +31,7 @@ import {
 } from '@solana/web3.js';
 import { getCounterSize } from '../accounts';
 import { findCounterPda } from '../pdas';
-import { COUNTER_PROGRAM_ADDRESS } from '../programs';
+import { SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS } from '../programs';
 import {
   expectAddress,
   expectSome,
@@ -41,7 +41,7 @@ import {
 } from '../shared';
 
 export type CreateInstruction<
-  TProgram extends string = typeof COUNTER_PROGRAM_ADDRESS,
+  TProgram extends string = typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
   TAccountCounter extends string | IAccountMeta<string> = string,
   TAccountAuthority extends string | IAccountMeta<string> = string,
   TAccountPayer extends string | IAccountMeta<string> = string,
@@ -126,7 +126,7 @@ export async function getCreateInstructionAsync<
   >
 ): Promise<
   CreateInstruction<
-    typeof COUNTER_PROGRAM_ADDRESS,
+    typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
     TAccountCounter,
     TAccountAuthority,
     TAccountPayer,
@@ -135,7 +135,7 @@ export async function getCreateInstructionAsync<
     IInstructionWithByteDelta
 > {
   // Program address.
-  const programAddress = COUNTER_PROGRAM_ADDRESS;
+  const programAddress = SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS;
 
   // Original accounts.
   const originalAccounts = {
@@ -180,7 +180,7 @@ export async function getCreateInstructionAsync<
     programAddress,
     data: getCreateInstructionDataEncoder().encode({}),
   } as CreateInstruction<
-    typeof COUNTER_PROGRAM_ADDRESS,
+    typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
     TAccountCounter,
     TAccountAuthority,
     TAccountPayer,
@@ -219,7 +219,7 @@ export function getCreateInstruction<
     TAccountSystemProgram
   >
 ): CreateInstruction<
-  typeof COUNTER_PROGRAM_ADDRESS,
+  typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
   TAccountCounter,
   TAccountAuthority,
   TAccountPayer,
@@ -227,7 +227,7 @@ export function getCreateInstruction<
 > &
   IInstructionWithByteDelta {
   // Program address.
-  const programAddress = COUNTER_PROGRAM_ADDRESS;
+  const programAddress = SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS;
 
   // Original accounts.
   const originalAccounts = {
@@ -267,7 +267,7 @@ export function getCreateInstruction<
     programAddress,
     data: getCreateInstructionDataEncoder().encode({}),
   } as CreateInstruction<
-    typeof COUNTER_PROGRAM_ADDRESS,
+    typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
     TAccountCounter,
     TAccountAuthority,
     TAccountPayer,
@@ -278,7 +278,7 @@ export function getCreateInstruction<
 }
 
 export type ParsedCreateInstruction<
-  TProgram extends string = typeof COUNTER_PROGRAM_ADDRESS,
+  TProgram extends string = typeof SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS,
   TAccountMetas extends readonly IAccountMeta[] = readonly IAccountMeta[],
 > = {
   programAddress: Address<TProgram>;

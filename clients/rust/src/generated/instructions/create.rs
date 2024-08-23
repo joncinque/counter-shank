@@ -49,7 +49,7 @@ impl Create {
         let data = CreateInstructionData::new().try_to_vec().unwrap();
 
         solana_program::instruction::Instruction {
-            program_id: crate::COUNTER_ID,
+            program_id: crate::SOLANA_JONC_PROGRAM_COUNTER_ID,
             accounts,
             data,
         }
@@ -251,7 +251,7 @@ impl<'a, 'b> CreateCpi<'a, 'b> {
         let data = CreateInstructionData::new().try_to_vec().unwrap();
 
         let instruction = solana_program::instruction::Instruction {
-            program_id: crate::COUNTER_ID,
+            program_id: crate::SOLANA_JONC_PROGRAM_COUNTER_ID,
             accounts,
             data,
         };

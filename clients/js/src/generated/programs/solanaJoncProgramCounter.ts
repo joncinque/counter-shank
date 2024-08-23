@@ -18,51 +18,51 @@ import {
 } from '../instructions';
 import { Key, getKeyEncoder } from '../types';
 
-export const COUNTER_PROGRAM_ADDRESS =
+export const SOLANA_JONC_PROGRAM_COUNTER_PROGRAM_ADDRESS =
   'CounterProgram111111111111111111111111111111' as Address<'CounterProgram111111111111111111111111111111'>;
 
-export enum CounterAccount {
+export enum SolanaJoncProgramCounterAccount {
   Counter,
 }
 
-export function identifyCounterAccount(
+export function identifySolanaJoncProgramCounterAccount(
   account: { data: ReadonlyUint8Array } | ReadonlyUint8Array
-): CounterAccount {
+): SolanaJoncProgramCounterAccount {
   const data = 'data' in account ? account.data : account;
   if (containsBytes(data, getKeyEncoder().encode(Key.Counter), 0)) {
-    return CounterAccount.Counter;
+    return SolanaJoncProgramCounterAccount.Counter;
   }
   throw new Error(
-    'The provided account could not be identified as a counter account.'
+    'The provided account could not be identified as a solanaJoncProgramCounter account.'
   );
 }
 
-export enum CounterInstruction {
+export enum SolanaJoncProgramCounterInstruction {
   Create,
   Increment,
 }
 
-export function identifyCounterInstruction(
+export function identifySolanaJoncProgramCounterInstruction(
   instruction: { data: ReadonlyUint8Array } | ReadonlyUint8Array
-): CounterInstruction {
+): SolanaJoncProgramCounterInstruction {
   const data = 'data' in instruction ? instruction.data : instruction;
   if (containsBytes(data, getU8Encoder().encode(0), 0)) {
-    return CounterInstruction.Create;
+    return SolanaJoncProgramCounterInstruction.Create;
   }
   if (containsBytes(data, getU8Encoder().encode(1), 0)) {
-    return CounterInstruction.Increment;
+    return SolanaJoncProgramCounterInstruction.Increment;
   }
   throw new Error(
-    'The provided instruction could not be identified as a counter instruction.'
+    'The provided instruction could not be identified as a solanaJoncProgramCounter instruction.'
   );
 }
 
-export type ParsedCounterInstruction<
+export type ParsedSolanaJoncProgramCounterInstruction<
   TProgram extends string = 'CounterProgram111111111111111111111111111111',
 > =
   | ({
-      instructionType: CounterInstruction.Create;
+      instructionType: SolanaJoncProgramCounterInstruction.Create;
     } & ParsedCreateInstruction<TProgram>)
   | ({
-      instructionType: CounterInstruction.Increment;
+      instructionType: SolanaJoncProgramCounterInstruction.Increment;
     } & ParsedIncrementInstruction<TProgram>);
