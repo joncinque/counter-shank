@@ -1,6 +1,6 @@
 [package]
 name = "solana-jonc-program-counter-cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "A generated Rust CLI for the Counter program (for testing)"
 repository = "https://github.com/joncinque/counter-shank"
 edition = "2021"
