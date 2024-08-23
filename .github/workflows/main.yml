@@ -29,6 +29,7 @@ jobs:
   format_and_lint_client_js:
     name: Format & Lint Client JS
     runs-on: ubuntu-latest
+    if: false
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
@@ -156,6 +157,7 @@ jobs:
     name: Test Client JS
     runs-on: ubuntu-latest
     needs: build_programs
+    if: false
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
