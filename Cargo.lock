@@ -3892,6 +3892,41 @@ dependencies = [
 ]
 
 [[package]]
+name = "solana-jonc-program-counter"
+version = "0.1.0"
+dependencies = [
+ "borsh 0.10.3",
+ "num-derive 0.3.3",
+ "num-traits",
+ "shank",
+ "solana-program",
+ "thiserror",
+]
+
+[[package]]
+name = "solana-jonc-program-counter-cli"
+version = "0.1.0"
+dependencies = [
+ "solana-jonc-program-counter-client",
+]
+
+[[package]]
+name = "solana-jonc-program-counter-client"
+version = "0.1.0"
+dependencies = [
+ "assert_matches",
+ "borsh 0.10.3",
+ "num-derive 0.3.3",
+ "num-traits",
+ "serde",
+ "serde_with 3.9.0",
+ "solana-program",
+ "solana-program-test",
+ "solana-sdk",
+ "thiserror",
+]
+
+[[package]]
 name = "solana-loader-v4-program"
 version = "1.18.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4050,34 +4085,6 @@ dependencies = [
  "tiny-bip39",
  "wasm-bindgen",
  "zeroize",
-]
-
-[[package]]
-name = "solana-program-counter"
-version = "0.0.0"
-dependencies = [
- "borsh 0.10.3",
- "num-derive 0.3.3",
- "num-traits",
- "shank",
- "solana-program",
- "thiserror",
-]
-
-[[package]]
-name = "solana-program-counter-client"
-version = "0.0.0"
-dependencies = [
- "assert_matches",
- "borsh 0.10.3",
- "num-derive 0.3.3",
- "num-traits",
- "serde",
- "serde_with 3.9.0",
- "solana-program",
- "solana-program-test",
- "solana-sdk",
- "thiserror",
 ]
 
 [[package]]
