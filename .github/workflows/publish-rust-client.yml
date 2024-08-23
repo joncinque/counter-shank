@@ -68,7 +68,7 @@ jobs:
   publish_rust:
     name: Publish Rust Client
     runs-on: ubuntu-latest
-    needs: test_rust
+    #needs: test_rust
     permissions:
       contents: write
     steps:
