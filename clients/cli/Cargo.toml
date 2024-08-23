@@ -8,4 +8,4 @@ readme = "README.md"
 license-file = "../../LICENSE"
 
 [dependencies]
-solana-jonc-program-counter-client = { path = "../rust", version = "0.1.5" }
+solana-jonc-program-counter-client = { path = "../rust", version = "0.1.6" }

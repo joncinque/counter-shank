@@ -1,6 +1,6 @@
 [package]
 name = "solana-jonc-program-counter-client"
-version = "0.1.5"
+version = "0.1.6"
 description = "A generated Rust library for the Counter program (for testing)"
 repository = "https://github.com/solana-program/counter-shank"
 edition = "2021"
