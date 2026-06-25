@@ -1,6 +1,6 @@
 [package]
-name = "solana-program-counter"
-version = "0.0.0"
+name = "solana-jonc-program-counter"
+version = "0.1.2"
 edition = "2021"
 readme = "./README.md"
 license-file = "../LICENSE"
